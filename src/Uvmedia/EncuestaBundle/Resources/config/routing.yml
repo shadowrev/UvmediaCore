@@ -1,0 +1,7 @@
+EncuestaBundle_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EncuestaBundle:Default:index }
+    
+EncuestaBundle_generatequestion:
+    pattern:  /question
+    defaults: { _controller: EncuestaBundle:Pregunta:random }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block meta_tags %}{% endblock %}
+    <title>{% block title %}Universidad del Valle{% endblock %}</title>
+    {# % stylesheets '@UvmediaCoreBundle/Resources/public/css/*' % #}
+    <link href="{# { asset_url } #}" type="text/css" rel="stylesheet" />
+    {# % endstylesheets % #}
+    {% block stylesheets %}
+    <link href="{{ asset('@UvmediaCoreBundle::css/jquery-ui-1.8.23.custom.css') }}" type="text/css" rel="stylesheet" />
+    {% endblock %}
+    {% javascripts '@UvmediaCoreBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% block javascripts %}{% endblock %}
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+    {% block javascript %}{% endblock %}
+</body>
+</html>
+
