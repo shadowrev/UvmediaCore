@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-{% block meta_tags %}{% endblock %}
-    <title>{% block title %}Universidad del Valle{% endblock %}</title>
-    {% block stylesheets %}
-    <link href="{{ asset('bundles/uvmediacore/css/jquery-ui-1.8.23.custom.css') }}" type="text/css" rel="stylesheet" />
-    {% endblock %}
-    {% javascripts '@UvmediaCoreBundle/Resources/public/js/*' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% block javascripts %}{% endblock %}
-</head>
-<body>
-    {% block encabezado %}{% endblock %}
-    {% block body %}
-    {% endblock %}
-    {% block pie %}{% endblock %}
-    {% block javascript %}{% endblock %}
-</body>
-</html>
-
+<div id="pie">
+    <p>&copy;2011 Universidad del Valle. Todos los derechos reservados</p>
+    <p>Desarrollado por UVMEDIA</p>
+</div>

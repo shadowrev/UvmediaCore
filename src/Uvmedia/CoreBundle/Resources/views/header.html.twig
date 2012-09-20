@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-{% block meta_tags %}{% endblock %}
-    <title>{% block title %}Universidad del Valle{% endblock %}</title>
-    {% block stylesheets %}
-    <link href="{{ asset('bundles/uvmediacore/css/jquery-ui-1.8.23.custom.css') }}" type="text/css" rel="stylesheet" />
-    {% endblock %}
-    {% javascripts '@UvmediaCoreBundle/Resources/public/js/*' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    {% block javascripts %}{% endblock %}
-</head>
-<body>
-    {% block encabezado %}{% endblock %}
-    {% block body %}
-    {% endblock %}
-    {% block pie %}{% endblock %}
-    {% block javascript %}{% endblock %}
-</body>
-</html>
-
+<div id="encabezamiento">
+<div id="titulo">
+    <a href="http://www.univalle.edu.co"><span>Universidad del Valle</span></a>
+</div>
+<div id="barra-facultades">
+    <a href="http://www.univalle.edu.co/busquedas.html"><span>Buscar</span></a>
+    <a href="http://www.univalle.edu.co/directorio"><span>Directorio</span></a>
+    <a href="http://biblioteca.univalle.edu.co/"><span>Biblioteca</span></a>
+</div>
+<div id="navegacion"><a href="#">Facultades y Dependencias</a> / <a href="#">Facultad de Salud</a></div>
+<h1>{{ titulo }}</h1>
+</div>

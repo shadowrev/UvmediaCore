@@ -1,0 +1,180 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-size: 11px;
+    font-family: arial, helvetica, sans-serif;
+    color: black;
+}
+
+a {
+    color: #C30;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+a:visited {
+    color: #C66;
+}
+
+a:hover {
+    color: #600;
+    text-decoration: underline;
+}
+
+h1 {
+    color: #666;
+    margin-top: 0;
+}
+
+th {
+    color:#BD1616;
+    font-size: 11px;
+    text-align: left;
+   }
+
+label {
+    font-size: 11px;
+    
+    
+}
+
+.area_conocimiento, .agregar{
+    margin: 0 auto;
+    width: 350px;
+    border-right-style: dotted;
+    border-left-style: dotted;
+    border-bottom-style: dotted;
+    border-top-style: dotted;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-right-color: #BD1616;
+    border-left-color: #BD1616;
+    border-bottom-color: #BD1616;
+    border-top-color:#BD1616;
+}
+
+.boton{
+    margin: 0 auto;
+    width: 90px;  
+}
+
+#encabezamiento, #cuerpo, #pie {
+    margin: 0 auto;
+    width: 700px;
+}
+
+/* Encabezado. Se usan CSS Sprites para sustituir las imagenes */
+#titulo {
+    background: url("../images/uv_salud_sprites.png") 346px -80px no-repeat;
+    width: 760px;
+    height: 54px;
+}
+
+#titulo a {
+    display: block;
+    background: url("../images/uv_salud_sprites.png");
+    width: 348px;
+    height: 54px;
+}
+
+#titulo a span {
+    visibility: hidden;
+}
+
+#barra-facultades {
+    background: url("../images/uv_salud_sprites.png") 0 -60px no-repeat;
+    height: 19px;
+    width: 760px;
+    padding-left: 405px;
+}
+
+#barra-facultades a {
+    display: block;
+    height: 15px;
+    width: 70px;
+    float: left;
+}
+
+#barra-facultades a span {
+    visibility: hidden;
+}
+
+#menu {
+    margin-bottom: -1px;
+}
+
+#menu ul {
+    list-style: none inside;
+    /* Compatibilidad con otros navegadores */
+    height: 0;
+    border: 0;
+    margin: 0;
+    padding: 0 0 0 11px;
+}
+
+#menu ul li {
+    float: left;
+    border: 1px solid #666;
+    height: 17px;
+    padding: 3px 8px 0;
+    margin-left: -1px;
+    background-color: #EEE;
+}
+
+#menu ul li:hover {
+    background: url("../images/bg_hovertab.jpg") repeat-x;
+}
+
+#menu ul ul.submenu {
+    display: none;
+    position: absolute;
+    padding: 0;
+    margin: 4px 0 0 -8px;
+}
+
+#menu ul ul.submenu li {
+    float: none;
+    margin-top: -1px;
+}
+
+#menu ul li.menu_selected, #menu ul li.selected li {
+    background: url("../images/bg_selecttab.jpg") repeat-x;
+}
+
+#menu a {
+    font-weight: bold;
+    color: #777;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    text-decoration: none;
+}
+
+#contenido {
+    border: 1px solid #666;
+    padding: 5px 10px;
+    width: 740px;
+}
+
+#contenido select {
+    width: 7em;
+}
+
+/* Pie de pagina */
+#pie {
+    margin-top: 30px;
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+}
+
+#pie p {
+    margin: 0;
+}
+
+#sgsi_proyecto_proy_id{
+    width: 7em;    
+}
