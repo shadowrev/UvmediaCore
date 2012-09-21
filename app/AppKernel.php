@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Uvmedia\EncuestaBundle\EncuestaBundle(),
             new Uvmedia\CoreBundle\UvmediaCoreBundle(),
+            new Uvmedia\MenuBundle\MenuBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

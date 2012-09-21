@@ -11,22 +11,11 @@
 <![endif]-->
 {% endblock %}
 {% block body %}
-
 <div id="cuerpo">
-<div id="menu">
-    <ul>
-        <li>It 1</li>
-        <li>It 2</li>
-        <li>It 3</li>
-    </ul>
-    <div style="clear: both"></div>
-</div>
+{{ parent() }}
 <div id="contenido">
     <div id="mensaje"></div>
+    <div>{{ contenido }}</div>
 </div>
-</div>
-<div id="pie">
-    <p>&copy;2011 Universidad del Valle. Todos los derechos reservados</p>
-    <p>Desarrollado por UVMEDIA</p>
 </div>
 {% endblock %}

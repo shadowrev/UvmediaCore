@@ -15,10 +15,10 @@
     {% block encabezado %}
     {% include 'UvmediaCoreBundle::header.html.twig' with {'titulo': titulo} %}
     {% endblock %}
-    {% block menu %}
-    {% include 'UvmediaCoreBundle::menu.html.twig' with {'menu': menu} %}
-    {% endblock %}
     {% block body %}
+        {% block menu %}
+        {% include 'UvmediaCoreBundle::menu.html.twig' with {'menu': menu} %}
+        {% endblock %}
     {% endblock %}
     {% block pie %}
     {% include 'UvmediaCoreBundle::footer.html.twig' %}

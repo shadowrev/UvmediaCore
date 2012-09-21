@@ -1,3 +1,7 @@
+MenuBundle:
+    resource: "@MenuBundle/Resources/config/routing.xml"
+    prefix:   /
+
 UvmediaCoreBundle:
     resource: "@UvmediaCoreBundle/Resources/config/routing.xml"
     prefix:   /
