@@ -1,0 +1,30 @@
+preguntaadmin:
+    pattern:  /
+    defaults: { _controller: "EncuestaBundle:Pregunta:index" }
+
+preguntaadmin_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EncuestaBundle:Pregunta:show" }
+
+preguntaadmin_new:
+    pattern:  /new
+    defaults: { _controller: "EncuestaBundle:Pregunta:new" }
+
+preguntaadmin_create:
+    pattern:  /create
+    defaults: { _controller: "EncuestaBundle:Pregunta:create" }
+    requirements: { _method: post }
+
+preguntaadmin_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EncuestaBundle:Pregunta:edit" }
+
+preguntaadmin_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EncuestaBundle:Pregunta:update" }
+    requirements: { _method: post }
+
+preguntaadmin_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EncuestaBundle:Pregunta:delete" }
+    requirements: { _method: post }

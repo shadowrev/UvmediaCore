@@ -153,17 +153,4 @@ class MenuItem
     {
         return $this->mei_parent;
     }
-    
-    /**
-     * Mascaras para la generación de plantillas en CRUD
-     */
-    
-    /**
-     * Set id
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->getMeiId();
-    }
 }
