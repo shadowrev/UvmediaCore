@@ -101,4 +101,22 @@ class Pregunta
     {
         return $this->tipo_pregunta;
     }
+    
+    /**
+     * Get respuestas
+     * @return type 
+     */
+    public function getRespuestas()
+    {
+        return $this->respuestas;
+    }
+    
+    /**
+     * Add respuesta
+     *
+     * @param Uvmedia\MenuBundle\Entity\MenuItem $respuesta
+     */
+    public function addMenuItem(\Uvmedia\EncuestaBundle\Entity\Respuesta $respuesta) {
+        $this->respuestas[] = $respuesta;
+    }
 }

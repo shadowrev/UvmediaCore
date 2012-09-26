@@ -3,5 +3,5 @@ EncuestaBundle_homepage:
     defaults: { _controller: EncuestaBundle:Default:index }
 
 EncuestaBundle_preguntaadmin:
-    pattern: /preguntaadmin/
-    defaults: { _controller: "EncuestaBundle:Pregunta:index" }
+    resource: "@EncuestaBundle/Resources/config/routing/pregunta.yml"
+    prefix: /preguntaadmin/

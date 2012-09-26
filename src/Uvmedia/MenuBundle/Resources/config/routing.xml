@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="MenuBundle_homepage" pattern="/hello/{name}">
-        <default key="_controller">MenuBundle:Default:index</default>
+    <route id="MenuBundle_homepage" pattern="/menuadmin/">
+        <default key="_controller">MenuBundle:MenuAdmin:index</default>
     </route>
 </routes>

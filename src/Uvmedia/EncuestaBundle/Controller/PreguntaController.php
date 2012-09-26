@@ -24,7 +24,9 @@ class PreguntaController extends Controller
         $entities = $em->getRepository('EncuestaBundle:Pregunta')->findAll();
 
         return $this->render('EncuestaBundle:Pregunta:index.html.twig', array(
-            'entities' => $entities
+            'entities' => $entities,
+            'titulo' => 'Pregunta',
+            'menu' => null
         ));
     }
 

@@ -13,11 +13,11 @@
 </head>
 <body>
     {% block encabezado %}
-    {% include 'UvmediaCoreBundle::header.html.twig' with {'titulo': titulo} %}
+        {% include 'UvmediaCoreBundle::header.html.twig' with {'titulo': titulo|default('Universidad del Valle')} %}
     {% endblock %}
     {% block body %}
         {% block menu %}
-        {% include 'UvmediaCoreBundle::menu.html.twig' with {'menu': menu} %}
+            {% include 'UvmediaCoreBundle::menu.html.twig' with {'menu': menu|default(null)} %}
         {% endblock %}
     {% endblock %}
     {% block pie %}
