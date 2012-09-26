@@ -1,0 +1,21 @@
+{% extends 'UvmediaCoreBundle::core.html.twig' %}
+{% block stylesheets %}{{ parent() }}
+<link href="{{ asset('bundles/uvmediacore/css/main.css') }}" type="text/css" rel="stylesheet" />
+<!-- Hack para hacer la pagina compatible con IE7 -->
+<!--[if IE7]>
+<link href="{{ asset('bundles/uvmediacore/css/main.ie7.css') }}" type="text/css" rel="stylesheet" />
+<![endif]-->
+{% endblock %}
+{% block body %} 
+<div>
+<table>
+{% for item_menu in lista_menues %}
+<tr>
+<td>{{ item_menu.mei_nombre }}</td>
+</tr>
+{% else %}
+<tr><td>No hay resultados</td></tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}
