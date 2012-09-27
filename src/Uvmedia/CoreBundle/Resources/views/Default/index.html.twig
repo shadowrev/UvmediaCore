@@ -12,10 +12,35 @@
 {% endblock %}
 {% block body %}
 <div id="cuerpo">
-{{ parent() }}
+    {% block menu %}
+    <div id="menu">
+        <ul class="menu">
+        {% for item_menu in menu %}
+            <li class="menu_normal">
+                <a href="{{ item_menu.meiEnlace }}">{{ item_menu.meiNombre }}</a>
+                {% if item_menu.meiChildren %}
+                <ul class="submenu">
+                {% for item_menu_hijo in item_menu.meiChildren %}
+                    <li>
+                        <a href="{{ item_menu_hijo.meiEnlace }}">{{ item_menu_hijo.meiNombre }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+        <div style="clear: both"></div>
+    </div>
+    {% endblock %}
 <div id="contenido">
     <div id="mensaje"></div>
-    <div>{{ contenido }}</div>
+    <div>
+        <h4>Indice de Modulos</h4>
+        <ul>
+            <li><a href="{{ path('MenuBundle_homepage') }}">Gesti&oacute;n de Men&uacute;es</a></li>
+        </ul>
+    </div>
 </div>
 </div>
 {% endblock %}

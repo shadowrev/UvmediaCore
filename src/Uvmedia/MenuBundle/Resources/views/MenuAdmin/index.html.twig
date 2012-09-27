@@ -1,21 +1,20 @@
-{% extends 'UvmediaCoreBundle::core.html.twig' %}
-{% block stylesheets %}{{ parent() }}
-<link href="{{ asset('bundles/uvmediacore/css/main.css') }}" type="text/css" rel="stylesheet" />
-<!-- Hack para hacer la pagina compatible con IE7 -->
-<!--[if IE7]>
-<link href="{{ asset('bundles/uvmediacore/css/main.ie7.css') }}" type="text/css" rel="stylesheet" />
-<![endif]-->
-{% endblock %}
-{% block body %} 
-<div>
+{% extends 'MenuBundle::layout.html.twig' %}
+{% block body_content %} 
 <table>
+<tr>
+    <th>Nombre</th>
+    <th>Enlace</th>
+    <th>Padre</th>
+</tr>
 {% for item_menu in lista_menues %}
 <tr>
-<td>{{ item_menu.mei_nombre }}</td>
+<td>{{ item_menu.meiNombre }}</td>
+<td>{{ item_menu.meiEnlace }}</td>
+<td>{{ item_menu.meiParent.meiNombre|default('void') }}</td>
 </tr>
 {% else %}
-<tr><td>No hay resultados</td></tr>
+<tr><td colspan="3">No hay resultados</td></tr>
 {% endfor %}
 </table>
-</div>
+<div><a href="{{path('MenuBundle_nuevo')}}">Crear nuevo</a></div>
 {% endblock %}

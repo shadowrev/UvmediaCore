@@ -3,7 +3,7 @@
 namespace Uvmedia\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Uvmedia\MenuBundle\Entity\MenuItem;
 
 class DefaultController extends Controller
 {
@@ -13,7 +13,15 @@ class DefaultController extends Controller
         return $this->render('UvmediaCoreBundle:Default:index.html.twig', array(
             'name' => $name, 
             'titulo' => 'Aqui va el titulo', 
-            'menu' => null,
+            'menu' => $this->getMenuItems(),
             'contenido' => 'Aqui están mis nueces'));
+    }
+    
+    protected function getMenuItems()
+    {
+        $controlador_menues = $this->getDoctrine()->getEntityManager();
+        $lista_menues = $controlador_menues->getRepository('MenuBundle:MenuItem')->findAll();
+        
+        return $lista_menues;
     }
 }

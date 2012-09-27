@@ -7,4 +7,10 @@
     <route id="MenuBundle_homepage" pattern="/menuadmin/">
         <default key="_controller">MenuBundle:MenuAdmin:index</default>
     </route>
+    <route id="MenuBundle_nuevo" pattern="/menuadmin/new/">
+        <default key="_controller">MenuBundle:MenuAdmin:new</default>
+    </route>
+    <route id="MenuBundle_crear" pattern="/menuadmin/create/">
+        <default key="_controller">MenuBundle:MenuAdmin:new</default>
+    </route>
 </routes>
