@@ -12,5 +12,6 @@
     </route>
     <route id="MenuBundle_crear" pattern="/menuadmin/create/">
         <default key="_controller">MenuBundle:MenuAdmin:new</default>
+        <requirement key="_method">post</requirement>
     </route>
 </routes>

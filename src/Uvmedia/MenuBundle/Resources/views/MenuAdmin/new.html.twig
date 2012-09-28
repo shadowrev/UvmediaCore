@@ -1,4 +1,7 @@
 {% extends 'MenuBundle::layout.html.twig' %}
 {% block body_content %}
-Acá se ve $%#?& de la buena
+<div>
+    <form action="{{ path('MenuBundle_crear') }}" method="post" {{ form_enctype(form) }}>
+    </form>
+</div>
 {% endblock %}
