@@ -12,7 +12,7 @@ class MenuItemType extends AbstractType
         $builder
             ->add('mei_nombre')
             ->add('mei_enlace')
-            ->add('mei_group_id')
+            //->add('mei_group_id')
             ->add('mei_parent')
         ;
     }

@@ -2,6 +2,12 @@
 {% block body_content %}
 <div>
     <form action="{{ path('MenuBundle_crear') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        <div>{{ form_label(form.mei_nombre, 'Nombre del Menú') }} {{ form_widget(form.mei_nombre) }}</div>
+        <div>{{ form_label(form.mei_enlace, 'Enlace') }} {{ form_widget(form.mei_enlace) }}</div>
+        <div>{{ form_label(form.mei_parent, 'Menu padre') }} {{ form_widget(form.mei_parent, { 'empty_value': 'ninguno' }) }}</div>
+        <div><button type="submit">{{ accion }}</button><a href="{{ path('MenuBundle_homepage') }}">Cancelar</a></div>
+        {{ form_rest(form) }}
     </form>
 </div>
 {% endblock %}

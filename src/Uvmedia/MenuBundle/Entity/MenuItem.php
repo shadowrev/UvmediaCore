@@ -166,4 +166,13 @@ class MenuItem
     {
         return $this->getMeiId();
     }
+    
+    /**
+     * Magic method __toString 
+     */
+    
+    public function __toString()
+    {
+        return $this->getMeiNombre();
+    }
 }

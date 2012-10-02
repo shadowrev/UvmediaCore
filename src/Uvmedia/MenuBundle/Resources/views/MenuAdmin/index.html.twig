@@ -5,12 +5,16 @@
     <th>Nombre</th>
     <th>Enlace</th>
     <th>Padre</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
 </tr>
 {% for item_menu in lista_menues %}
 <tr>
 <td>{{ item_menu.meiNombre }}</td>
 <td>{{ item_menu.meiEnlace }}</td>
-<td>{{ item_menu.meiParent.meiNombre|default('void') }}</td>
+<td>{{ item_menu.meiParent.meiNombre|default('no tiene') }}</td>
+<td><a href="{{ path('MenuBundle_editar', { 'id_menu' : item_menu.meiId }) }}">Editar</a></td>
+<td><a href="#">Eliminar</a></td>
 </tr>
 {% else %}
 <tr><td colspan="3">No hay resultados</td></tr>
