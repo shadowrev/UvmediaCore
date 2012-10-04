@@ -11,6 +11,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class MenuItemRepository extends EntityRepository
 {
+    /**
+     * Obtiene los menus que son raiz (no tienen padre)
+     * @param $id_grupo Id del perfil de usuario asociado al menu
+     * @return Doctrine\Common\Collections\Collection
+     */
     public function findMenuRoot($id_grupo = null)
     {
         $criteria = array('mei_parent' => null);

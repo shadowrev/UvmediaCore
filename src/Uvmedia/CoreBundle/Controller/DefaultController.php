@@ -3,7 +3,6 @@
 namespace Uvmedia\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Uvmedia\MenuBundle\Entity\MenuItem;
 
 class DefaultController extends Controller
 {
@@ -20,7 +19,8 @@ class DefaultController extends Controller
     protected function getMenuItems()
     {
         $controlador_menues = $this->getDoctrine()->getEntityManager();
-        $lista_menues = $controlador_menues->getRepository('MenuBundle:MenuItem')->findAll();
+        $lista_menues = $controlador_menues->getRepository('MenuBundle:MenuItem')->findMenuRoot();
+//        $lista_menues = $controlador_menues->getRepository('MenuBundle:MenuItem')->findAll();
         
         return $lista_menues;
     }
