@@ -1,3 +1,7 @@
+UsuariosBundle:
+    resource: "@UsuariosBundle/Resources/config/routing.yml"
+    prefix:   /
+
 MenuBundle:
     resource: "@MenuBundle/Resources/config/routing.xml"
     prefix:   /

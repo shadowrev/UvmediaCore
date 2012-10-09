@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Uvmedia\EncuestaBundle\EncuestaBundle(),
             new Uvmedia\CoreBundle\UvmediaCoreBundle(),
             new Uvmedia\MenuBundle\MenuBundle(),
+            new Uvmedia\UsuariosBundle\UsuariosBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
