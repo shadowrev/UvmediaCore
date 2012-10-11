@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+    <entity name="Uvmedia\UsuariosBundle\Entity\Usuario" table="usuario">
+        <id name="id" type="integer" column="usu_id">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="login" type="string" length="100" column="usu_login" />
+        <field name="nombres" type="string" length="100" column="usu_nombres" />
+        <field name="apellidos" type="string" length="100" column="usu_apellidos" />
+        <field name="email" type="string" length="255" column="usu_email" />
+        <field name="contrasenha" type="string" length="255" column="usu_contrasenha" />
+        <field name="salt" type="string" length="255" column="usu_salt" />
+        <many-to-many target-entity="Grupo" field="grupos" mapped-by="usuarios" />
+<!--        <many-to-many target-entity="Grupo" field="grupos">
+            <join-table name="usuariosgrupos">
+                <join-columns>
+                    <join-column name="id" referenced-column-name="usu_id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="id" referenced-column-name="usu_id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>-->
+    </entity>
+</doctrine-mapping>

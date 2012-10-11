@@ -1,0 +1,53 @@
+{% extends 'CoreBundle::layout.html.twig' %}
+{% block body_content %} 
+<h4>Usuarios en el Sistema</h4>
+<table>
+<tr>
+    <th>Usuario</th>
+    <th>Login</th>
+    <th>Grupo</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+</tr>
+{% for usuario in lista_usuarios %}
+<tr>
+<td>{{ usuario.nombres }} {{usuario.apellidos}}</td>
+<td>{{ usuario.login }}</td>
+<td>
+    {% for grupo in usuario.grupos %}
+    {{ grupo.nombre }},
+    {% else %}
+    <em>Sin grupos asociados</em>
+    {% endfor %}
+</td>
+<td><a href="#">Editar</a></td>
+<td><a href="#">Eliminar</a></td>
+</tr>
+{% else %}
+<tr><td colspan="3">No hay resultados</td></tr>
+{% endfor %}
+</table>
+<div><a href="{{path('UsuariosBundle_newuser')}}">Crear nuevo</a></div>
+
+<h4>Grupos en el Sistema</h4>
+<table>
+<tr>
+    <th>Nombre del Grupo</th>
+    <th>Aplicacion asociada</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+</tr>
+{% for grupo in lista_grupos %}
+<tr>
+<td>{{ grupo.nombre }}</td>
+<td>{{ grupo.aplicacion.nombre|default('<em>no tiene</em>') }}</td>
+<td><a href="#">Editar</a></td>
+<td><a href="#">Eliminar</a></td>
+</tr>
+{% else %}
+<tr><td colspan="3">No hay resultados</td></tr>
+{% endfor %}
+</table>
+<div><a href="{{path('UsuariosBundle_newgroup')}}">Crear nuevo</a></div>
+
+{% endblock %}

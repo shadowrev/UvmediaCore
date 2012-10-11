@@ -1,0 +1,19 @@
+{% extends 'UvmediaCoreBundle::core.html.twig' %}
+{% block stylesheets %}{{ parent() }}
+<link href="{{ asset('bundles/uvmediacore/css/main.css') }}" type="text/css" rel="stylesheet" />
+<!-- Hack para hacer la pagina compatible con IE7 -->
+<!--[if IE7]>
+<link href="{{ asset('bundles/uvmediacore/css/main.ie7.css') }}" type="text/css" rel="stylesheet" />
+<![endif]-->
+{% endblock %}
+{% block body %}
+<div id="cuerpo">
+{% block menu %}{% endblock %}
+<div id="contenido">
+    {% block mensaje %}{% endblock %}
+    <div>
+        {% block body_content %}{% endblock %}
+    </div>
+</div>
+</div>
+{% endblock %}

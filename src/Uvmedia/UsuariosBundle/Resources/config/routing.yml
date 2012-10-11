@@ -1,3 +1,11 @@
 UsuariosBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: UsuariosBundle:Default:index }
+    pattern:  /useradmin
+    defaults: { _controller: UsuariosBundle:UserAdmin:index }
+    
+UsuariosBundle_newuser:
+    pattern: /useradmin/user/new
+    defaults: { _controller: UsuariosBundle:UserAdmin:newUsuario }
+    
+UsuariosBundle_newgroup:
+    pattern: /useradmin/group/new
+    defaults: { _controller: UsuariosBundle:UserAdmin:newGrupo }

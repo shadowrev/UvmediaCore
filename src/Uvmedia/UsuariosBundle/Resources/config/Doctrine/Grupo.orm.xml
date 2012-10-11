@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                   https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+    <entity name="Uvmedia\UsuariosBundle\Entity\Grupo" table="grupo">
+        <id name="id" type="integer" column="grp_id">
+            <generator strategy="AUTO" />
+        </id>
+        <field name="nombre" type="string" length="100" column="grp_nombre" />
+        <many-to-one target-entity="Aplicacion" field="aplicacion">
+            <join-column name="grp_apl_id" on-update="CASCADE" referenced-column-name="apl_id" />
+        </many-to-one>
+        <many-to-many target-entity="Usuario" field="usuarios" inversed-by="grupos" />
+<!--        <many-to-many target-entity="Usuario" field="usuarios">
+            <join-table name="usuariosgrupos">
+                <join-columns>
+                    <join-column name="usu_id" referenced-column-name="id" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="grp_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>-->
+    </entity>
+</doctrine-mapping>

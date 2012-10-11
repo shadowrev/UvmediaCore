@@ -1,5 +1,9 @@
+*.zip
+*~
 /jquery-ui/
 /web/bundles/
-/app/logs/
-/app/cache/
+/app/logs/*
+/app/bootstrap*
+/app/cache/*
+/app/config/parameters.ini
 /nbproject/
