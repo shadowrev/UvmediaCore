@@ -1,0 +1,20 @@
+<div id="menu">
+    <ul class="menu">
+        <li class="menu_normal"><a href="{{ homepage|default(path('UvmediaCoreBundle_homepage')) }}">Inicio</a></li>
+    {% for item_menu in menu %}
+        <li class="menu_normal">
+            <a href="{{ item_menu.meiEnlace }}">{{ item_menu.meiNombre }}</a>
+            {% if item_menu.meiChildren %}
+            <ul class="submenu">
+            {% for item_menu_hijo in item_menu.meiChildren %}
+                <li>
+                    <a href="{{ item_menu_hijo.meiEnlace }}">{{ item_menu_hijo.meiNombre }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    <div style="clear: both"></div>
+</div>

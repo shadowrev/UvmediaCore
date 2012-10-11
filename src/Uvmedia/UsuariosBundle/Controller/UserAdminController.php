@@ -8,6 +8,7 @@ namespace Uvmedia\UsuariosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Uvmedia\UsuariosBundle\Entity\Usuario;
+use Uvmedia\UsuariosBundle\Form\UsuarioType;
 use Uvmedia\UsuariosBundle\Entity\Aplicacion;
 use Uvmedia\UsuariosBundle\Entity\Grupo;
 
@@ -29,6 +30,8 @@ class UserAdminController extends Controller
     
     public function newUsuarioAction()
     {
+        $usuario = new Usuario();
+        $form_usuario = $this->createForm(new UsuarioType, $usuario);
         
     }
     
