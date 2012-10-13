@@ -1,0 +1,15 @@
+{% extends 'MenuBundle::layout.html.twig' %}
+{% block body_content %}
+<div>
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        <div>{{ form_label(form.nombres, 'Nombres') }} {{ form_widget(form.nombres) }}</div>
+        <div>{{ form_label(form.apellidos, 'Apellidos') }} {{ form_widget(form.apellidos) }}</div>
+        <div>{{ form_label(form.login, 'Nombre de Usuario') }} {{ form_widget(form.login) }}</div>
+        <div>{{ form_label(form.contrasenha, 'Contraseña') }} {{ form_widget(form.contrasenha) }}</div>
+        <div>{{ form_label(form.confirm, 'Confirmar Contraseña') }} {{ form_widget(form.confirm) }}</div>
+        <div><button type="submit">{{ accion }}</button><a href="{{ path('UsuariosBundle_homepage') }}">Cancelar</a></div>
+        {{ form_rest(form) }}
+    </form>
+</div>
+{% endblock %}

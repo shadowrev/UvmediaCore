@@ -8,7 +8,7 @@
 {% endblock %}
 {% block body %}
 <div id="cuerpo">
-{% block menu %}{% endblock %}
+{% block menu %}{% include 'MenuBundle::menu.html.twig' %}{% endblock %}
 <div id="contenido">
     {% block mensaje %}{% endblock %}
     <div>

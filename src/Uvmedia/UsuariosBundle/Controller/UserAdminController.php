@@ -33,6 +33,10 @@ class UserAdminController extends Controller
         $usuario = new Usuario();
         $form_usuario = $this->createForm(new UsuarioType, $usuario);
         
+        return $this->render('UsuariosBundle:UserAdmin:new_user.html.twig', array(
+            'form' => $form_usuario->createView(),
+            'accion' => 'Ingresar Nuevo Usuario'
+        ));
     }
     
     public function editUsuarioAction()

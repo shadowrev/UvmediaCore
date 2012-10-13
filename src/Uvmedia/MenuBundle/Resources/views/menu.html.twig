@@ -1,7 +1,7 @@
 <div id="menu">
     <ul class="menu">
         <li class="menu_normal"><a href="{{ homepage|default(path('UvmediaCoreBundle_homepage')) }}">Inicio</a></li>
-    {% for item_menu in menu %}
+    {% for item_menu in menu|default(null) %}
         <li class="menu_normal">
             <a href="{{ item_menu.meiEnlace }}">{{ item_menu.meiNombre }}</a>
             {% if item_menu.meiChildren %}
