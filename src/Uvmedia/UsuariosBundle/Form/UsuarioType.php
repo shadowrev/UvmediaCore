@@ -25,7 +25,7 @@ class UsuarioType extends AbstractType
         ;
         
         $builder
-            ->addValidator(new CallbackValidator(function (FormInterface $form) 
+            ->addValidator(new CallbackValidator(function (\Symfony\Component\Form\FormInterface $form) 
                 {
                     if(strcmp($form['contrasenha']->getData(), $form['confirm']->getData()) != 0)
                     {

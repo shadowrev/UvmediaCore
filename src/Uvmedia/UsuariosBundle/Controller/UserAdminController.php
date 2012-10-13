@@ -7,6 +7,7 @@
 namespace Uvmedia\UsuariosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Uvmedia\UsuariosBundle\Entity\Usuario;
 use Uvmedia\UsuariosBundle\Form\UsuarioType;
 use Uvmedia\UsuariosBundle\Entity\Aplicacion;
@@ -28,10 +29,21 @@ class UserAdminController extends Controller
         ));
     }
     
-    public function newUsuarioAction()
+    public function newUsuarioAction(Request $request)
     {
         $usuario = new Usuario();
         $form_usuario = $this->createForm(new UsuarioType, $usuario);
+        
+        if($request->getMethod() == 'POST')
+        {
+            $form_usuario->bindRequest($request);
+            
+            if($form_usuario->isValid())
+            {
+                // TODO procedimiento para guardar en la base de datos
+                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+            }
+        }
         
         return $this->render('UsuariosBundle:UserAdmin:new_user.html.twig', array(
             'form' => $form_usuario->createView(),
