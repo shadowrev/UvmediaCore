@@ -40,7 +40,9 @@ class UserAdminController extends Controller
             
             if($form_usuario->isValid())
             {
-                // TODO procedimiento para guardar en la base de datos
+                $usuario->setSalt(uniqid() . rand(0, 10000));
+                $usuario->setContrasenha($salt . $usuario->getContrasenha());
+                $usuario_manager = $this->getDoctrine()->getEntityManager();
                 return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
             }
         }
