@@ -37,13 +37,17 @@ class UserAdminController extends Controller
         if($request->getMethod() == 'POST')
         {
             $form_usuario->bindRequest($request);
-            
+            var_dump($form_usuario->getAttribute('password'));
             if($form_usuario->isValid())
             {
-                $usuario->setSalt(uniqid() . rand(0, 10000));
-                $usuario->setContrasenha($salt . $usuario->getContrasenha());
-                $usuario_manager = $this->getDoctrine()->getEntityManager();
-                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+//                $usuario->setSalt(uniqid() . rand(0, 10000));
+//                $usuario->setContrasenha($usuario->getSalt() . $request->get('contrasenha'));
+//                
+//                $usuario_manager = $this->getDoctrine()->getEntityManager();
+//                $usuario_manager->persist($usuario);
+//                $usuario_manager->flush();
+                
+//                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
             }
         }
         

@@ -7,3 +7,4 @@
 /app/cache/*
 /app/config/parameters.ini
 /nbproject/
+/web/offline/
