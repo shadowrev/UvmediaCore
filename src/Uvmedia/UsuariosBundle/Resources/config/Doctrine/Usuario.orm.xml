@@ -13,16 +13,16 @@
         <field name="email" type="string" length="255" column="usu_email" />
         <field name="contrasenha" type="string" length="255" column="usu_contrasenha" />
         <field name="salt" type="string" length="255" column="usu_salt" />
-        <many-to-many target-entity="Grupo" field="grupos" mapped-by="usuarios" />
-<!--        <many-to-many target-entity="Grupo" field="grupos">
+<!--        <many-to-many target-entity="Grupo" field="grupos" inversed-by="usuarios" />-->
+        <many-to-many target-entity="Grupo" field="grupos" inversed-by="usuarios">
             <join-table name="usuariosgrupos">
                 <join-columns>
-                    <join-column name="id" referenced-column-name="usu_id" />
+                    <join-column name="usu_id" referenced-column-name="id" nullable="true" />
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="id" referenced-column-name="usu_id" />
+                    <join-column name="grp_id" referenced-column-name="id" />
                 </inverse-join-columns>
             </join-table>
-        </many-to-many>-->
+        </many-to-many>
     </entity>
 </doctrine-mapping>

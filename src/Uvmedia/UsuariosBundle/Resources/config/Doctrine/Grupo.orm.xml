@@ -11,14 +11,14 @@
         <many-to-one target-entity="Aplicacion" field="aplicacion">
             <join-column name="grp_apl_id" on-update="CASCADE" referenced-column-name="apl_id" />
         </many-to-one>
-        <many-to-many target-entity="Usuario" field="usuarios" inversed-by="grupos" />
+        <many-to-many target-entity="Usuario" field="usuarios" mapped-by="grupos" />
 <!--        <many-to-many target-entity="Usuario" field="usuarios">
             <join-table name="usuariosgrupos">
                 <join-columns>
-                    <join-column name="usu_id" referenced-column-name="id" />
+                    <join-column name="usu_id" referenced-column-name="id" nullable="true" />
                 </join-columns>
                 <inverse-join-columns>
-                    <join-column name="grp_id" referenced-column-name="id" />
+                    <join-column name="grp_id" referenced-column-name="id" nullable="true" />
                 </inverse-join-columns>
             </join-table>
         </many-to-many>-->

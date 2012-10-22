@@ -22,6 +22,8 @@ class UserAdminController extends Controller
         $lista_grupos = $controlador_bd->getRepository('UsuariosBundle:Grupo')->findAll();
         $lista_aplicaciones = $controlador_bd->getRepository('UsuariosBundle:Aplicacion')->findAll();
         
+        var_dump($lista_usuarios[0]->getGrupos());
+        
         return $this->render('UsuariosBundle:UserAdmin:index.html.twig', array(
             'lista_usuarios' => $lista_usuarios,
             'lista_grupos' => $lista_grupos,
@@ -37,17 +39,17 @@ class UserAdminController extends Controller
         if($request->getMethod() == 'POST')
         {
             $form_usuario->bindRequest($request);
-            var_dump($form_usuario->getAttribute('password'));
+
             if($form_usuario->isValid())
             {
-//                $usuario->setSalt(uniqid() . rand(0, 10000));
-//                $usuario->setContrasenha($usuario->getSalt() . $request->get('contrasenha'));
-//                
-//                $usuario_manager = $this->getDoctrine()->getEntityManager();
-//                $usuario_manager->persist($usuario);
-//                $usuario_manager->flush();
+                $usuario->setSalt(uniqid() . rand(0, 10000));
+                $usuario->setContrasenha(md5($usuario->getSalt() . $form_usuario->getData()->getContrasenha()));
                 
-//                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+                $usuario_manager = $this->getDoctrine()->getEntityManager();
+                $usuario_manager->persist($usuario);
+                $usuario_manager->flush();
+                
+                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
             }
         }
         
