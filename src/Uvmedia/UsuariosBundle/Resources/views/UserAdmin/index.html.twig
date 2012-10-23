@@ -14,11 +14,11 @@
 <td>{{ usuario.nombres }} {{usuario.apellidos}}</td>
 <td>{{ usuario.login }}</td>
 <td>
-    {* for grupo in usuario.grupos *}
-    {* grupo.nombre *},
-    {* else *}
+    {% for grupo in usuario.grupos %}
+    {{ grupo.nombre }},
+    {% else %}
     <em>Sin grupos asociados</em>
-    {* endfor *}
+    {% endfor %}
 </td>
 <td><a href="#">Editar</a></td>
 <td><a href="#">Eliminar</a></td>

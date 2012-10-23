@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://symfony.com/schema/routing/routing-1.0.xsd" uri="symfony.com/schema/routing/routing-1.0.xsd"/>
-    <system systemId="https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd" uri="raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd"/>
-</catalog>

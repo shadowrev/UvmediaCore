@@ -22,8 +22,6 @@ class UserAdminController extends Controller
         $lista_grupos = $controlador_bd->getRepository('UsuariosBundle:Grupo')->findAll();
         $lista_aplicaciones = $controlador_bd->getRepository('UsuariosBundle:Aplicacion')->findAll();
         
-        var_dump($lista_usuarios[0]->getGrupos());
-        
         return $this->render('UsuariosBundle:UserAdmin:index.html.twig', array(
             'lista_usuarios' => $lista_usuarios,
             'lista_grupos' => $lista_grupos,
