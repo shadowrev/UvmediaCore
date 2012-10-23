@@ -6,6 +6,7 @@
 /app/bootstrap*
 /app/cache/*
 /app/config/parameters.ini
+/app/config/parameters.yml
 /nbproject/
 /web/offline/
 /vendor/
