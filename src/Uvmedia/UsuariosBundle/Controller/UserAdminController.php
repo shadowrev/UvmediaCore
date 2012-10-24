@@ -57,9 +57,10 @@ class UserAdminController extends Controller
         ));
     }
     
-    public function editUsuarioAction()
+    public function editUsuarioAction($id_usuario)
     {
-        
+        $ent_manager = $this->getDoctrine()->getEntityManager();
+        $usuario = $ent_manager->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
     }
     
     public function deleteUsuarioAction()
