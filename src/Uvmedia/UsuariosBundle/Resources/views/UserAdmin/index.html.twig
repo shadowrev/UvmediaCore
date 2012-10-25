@@ -20,7 +20,7 @@
     <em>Sin grupos asociados</em>
     {% endfor %}
 </td>
-<td><a href="#">Editar</a></td>
+<td><a href="{{ path('UsuariosBundle_edituser', {'id_usuario' : usuario.id}) }}">Editar</a></td>
 <td><a href="#">Eliminar</a></td>
 </tr>
 {% else %}

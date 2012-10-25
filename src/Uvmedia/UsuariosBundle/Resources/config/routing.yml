@@ -5,6 +5,10 @@ UsuariosBundle_homepage:
 UsuariosBundle_newuser:
     pattern: /useradmin/user/new
     defaults: { _controller: UsuariosBundle:UserAdmin:newUsuario }
+
+UsuariosBundle_edituser:
+    pattern: /useradmin/user/edit/{id_usuario}
+    defaults: { _controller: UsuariosBundle:UserAdmin:editUsuario }
     
 UsuariosBundle_newgroup:
     pattern: /useradmin/group/new

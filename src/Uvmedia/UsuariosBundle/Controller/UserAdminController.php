@@ -29,19 +29,21 @@ class UserAdminController extends Controller
         ));
     }
     
-    public function newUsuarioAction(Request $request)
+    public function newUsuarioAction()
     {
         $usuario = new Usuario();
         $form_usuario = $this->createForm(new UsuarioType, $usuario);
+        $request = $this->getRequest();
         
         if($request->getMethod() == 'POST')
         {
-            $form_usuario->bindRequest($request);
+            $form_usuario->bind($request);
 
             if($form_usuario->isValid())
             {
-                $usuario->setSalt(uniqid() . rand(0, 10000));
-                $usuario->setContrasenha(md5($usuario->getSalt() . $form_usuario->getData()->getContrasenha()));
+//                $usuario->setSalt(uniqid() . rand(0, 10000));
+//                $usuario->setContrasenha(md5($usuario->getSalt() . $form_usuario->getData()->getContrasenha()));
+                $this->generarContrasenhaUsuario($usuario, $form_usuario->getData()->getContrasenha());
                 
                 $usuario_manager = $this->getDoctrine()->getEntityManager();
                 $usuario_manager->persist($usuario);
@@ -59,8 +61,37 @@ class UserAdminController extends Controller
     
     public function editUsuarioAction($id_usuario)
     {
-        $ent_manager = $this->getDoctrine()->getEntityManager();
-        $usuario = $ent_manager->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
+        $usuario_manager = $this->getDoctrine()->getEntityManager();
+        $usuario = $usuario_manager->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
+        
+        if(!$usuario)
+        {
+            throw $this->createNotFoundException(sprintf('El usuario con identificador %s no existe', $id_usuario));
+        }
+        
+        $request = $this->getRequest();
+        $form_usuario = $this->createForm(new UsuarioType(), $usuario);
+        
+        if($request->isMethod('POST'))
+        {
+            $form_usuario->bind($request);
+            if($form_usuario->isValid())
+            {
+//                $usuario->setSalt(uniqid() . rand(0, 10000));
+//                $usuario->setContrasenha(md5($usuario->getSalt() . $form_usuario->getData()->getContrasenha()));
+                $this->generarContrasenhaUsuario($usuario, $form_usuario->getData()->getContrasenha());
+                
+                $usuario_manager->persist($usuario);
+                $usuario_manager->flush();
+                
+                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+            }
+        }
+        
+        return $this->render('UsuariosBundle:UserAdmin:new_user.html.twig', array(
+            'form' => $form_usuario->createView(),
+            'accion' => 'Modificar Usuario'
+        ));
     }
     
     public function deleteUsuarioAction()
@@ -81,5 +112,11 @@ class UserAdminController extends Controller
     public function deleteGrupoAction()
     {
         
+    }
+    
+    protected function generarContrasenhaUsuario(&$usuario, $contrasenha)
+    {
+        $usuario->setSalt(uniqid() . rand(0, 10000));
+        $usuario->setContrasenha(md5($usuario->getSalt() . $contrasenha));
     }
 }
