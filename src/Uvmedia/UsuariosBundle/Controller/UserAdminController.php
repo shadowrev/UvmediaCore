@@ -94,9 +94,26 @@ class UserAdminController extends Controller
         ));
     }
     
-    public function deleteUsuarioAction()
+    public function deleteUsuarioAction($id_usuario)
     {
-        
+        $form = $this->createDeleteForm($id_usuario);
+        $request = $this->getRequest();
+
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getEntityManager();
+            $entity = $em->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('No existe el usuario');
+            }
+
+            $em->remove($entity);
+            $em->flush();
+        }
+
+        return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
     }
     
     public function newGrupoAction()
@@ -118,5 +135,13 @@ class UserAdminController extends Controller
     {
         $usuario->setSalt(uniqid() . rand(0, 10000));
         $usuario->setContrasenha(md5($usuario->getSalt() . $contrasenha));
+    }
+    
+    private function createDeleteForm($id)
+    {
+        return $this->createFormBuilder(array('id' => $id))
+            ->add('id', 'hidden')
+            ->getForm()
+        ;
     }
 }

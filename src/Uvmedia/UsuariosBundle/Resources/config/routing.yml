@@ -10,6 +10,10 @@ UsuariosBundle_edituser:
     pattern: /useradmin/user/edit/{id_usuario}
     defaults: { _controller: UsuariosBundle:UserAdmin:editUsuario }
     
+UsuariosBundle_deleteuser:
+    pattern: /useradmin/user/delete/{id_usuario}
+    defaults: { _controller: UsuariosBundle:UserAdmin:deleteUsuario }
+    
 UsuariosBundle_newgroup:
     pattern: /useradmin/group/new
     defaults: { _controller: UsuariosBundle:UserAdmin:newGrupo }

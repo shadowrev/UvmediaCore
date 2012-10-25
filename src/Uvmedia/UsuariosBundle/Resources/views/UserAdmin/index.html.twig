@@ -21,7 +21,7 @@
     {% endfor %}
 </td>
 <td><a href="{{ path('UsuariosBundle_edituser', {'id_usuario' : usuario.id}) }}">Editar</a></td>
-<td><a href="#">Eliminar</a></td>
+<td><a href="{{ path('UsuariosBundle_deleteuser', {'id_usuario' : usuario.id}) }}">Eliminar</a></td>
 </tr>
 {% else %}
 <tr><td colspan="3">No hay resultados</td></tr>
