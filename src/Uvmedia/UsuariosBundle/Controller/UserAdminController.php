@@ -25,7 +25,12 @@ class UserAdminController extends Controller
         return $this->render('UsuariosBundle:UserAdmin:index.html.twig', array(
             'lista_usuarios' => $lista_usuarios,
             'lista_grupos' => $lista_grupos,
-            'lista_aplicaciones' => $lista_aplicaciones
+            'lista_aplicaciones' => $lista_aplicaciones,
+            'array_lst' => array(
+                'tingle' => 'zelda',
+                'chozo' => 'metroid',
+                'goomba' => 'mario'
+            )
         ));
     }
     
@@ -96,22 +101,16 @@ class UserAdminController extends Controller
     
     public function deleteUsuarioAction($id_usuario)
     {
-        $form = $this->createDeleteForm($id_usuario);
-        $request = $this->getRequest();
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
 
-        $form->bindRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
-            $entity = $em->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('No existe el usuario');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        if (!$entity) 
+        {
+            throw $this->createNotFoundException('No existe el usuario');
         }
+        $em->remove($entity);
+        $em->flush();
+
 
         return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
     }

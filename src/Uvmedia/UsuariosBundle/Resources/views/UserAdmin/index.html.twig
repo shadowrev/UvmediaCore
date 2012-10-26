@@ -29,6 +29,13 @@
 </table>
 <div><a href="{{path('UsuariosBundle_newuser')}}">Crear nuevo</a></div>
 
+{* Así se recorre un array asociativo en TWIG *}
+<ul>
+{% for item,cont in array_lst %}
+<li>parametro: {{ item }} relacion: {{ cont }}</li>
+{% endfor %}
+</ul>
+
 <h4>Grupos en el Sistema</h4>
 <table>
 <tr>

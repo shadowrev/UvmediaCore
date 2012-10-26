@@ -1,0 +1,32 @@
+{* Este template se emplea para tabular los resultados en una tabla *}
+{* parametros: array(nombre_campo => parametro_entidad) encabezado y parametros que se quieren listar *}
+{*     nombre_campo es el encabezado de la columna ("Nombre de ..."), parametro_entidad *}
+{*     parametro_entidad es el nombre del parametro de la entidad ("Nombre de ...") *}
+{* entidad: ArrayCollection el contenido de la tabla *}
+<table class="records_list">
+    <thead>
+        <tr>
+            
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('preguntaadmin_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.nombre }}</td>
+            <td>{{ entity.tipopregunta }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('preguntaadmin_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('preguntaadmin_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
