@@ -17,3 +17,7 @@ UsuariosBundle_deleteuser:
 UsuariosBundle_newgroup:
     pattern: /useradmin/group/new
     defaults: { _controller: UsuariosBundle:UserAdmin:newGrupo }
+    
+#UsuariosBundle_aplicacion:
+#    resource: @UsuariosBundle/Resources/config/routing/aplicacion.yml
+#    prefix: /crudaplicacion/
