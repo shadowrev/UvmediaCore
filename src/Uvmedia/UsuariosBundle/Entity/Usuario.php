@@ -3,11 +3,12 @@
 namespace Uvmedia\UsuariosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Uvmedia\UsuariosBundle\Entity\Usuario
  */
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @var string $login
@@ -202,5 +203,24 @@ class Usuario
     public function getGrupos()
     {
         return $this->grupos;
+    }
+
+    public function eraseCredentials() {
+        
+    }
+
+    /**
+     * Funciones especificas para usar como entorno seguro
+     */
+    public function getPassword() {
+        return $this->getContrasenha();
+    }
+
+    public function getRoles() {
+        return $this->getGrupos();
+    }
+
+    public function getUsername() {
+        return $this->getLogin();
     }
 }

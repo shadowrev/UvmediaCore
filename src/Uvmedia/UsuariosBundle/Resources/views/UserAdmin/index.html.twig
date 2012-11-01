@@ -15,32 +15,20 @@
 <td>{{ usuario.login }}</td>
 <td>
     {% for grupo in usuario.grupos %}
-    {{ grupo.get('nombre') }},
+    {{ grupo.nombre }},
     {% else %}
     <em>Sin grupos asociados</em>
     {% endfor %}
 </td>
 <td><a href="{{ path('UsuariosBundle_edituser', {'id_usuario' : usuario.id}) }}">Editar</a></td>
-<td><a href="{{ path('UsuariosBundle_deleteuser', {'id_usuario' : usuario.id}) }}">Eliminar</a></td>
+<td><a href="{{ path('UsuariosBundle_deleteuser', {'id_usuario' : usuario.id}) }}" onclick="return confirm(&quot;Va a eliminar a {{ usuario.login }} &iquest;Está seguro?&quot;)">Eliminar</a></td>
 </tr>
 {% else %}
 <tr><td colspan="3">No hay resultados</td></tr>
 {% endfor %}
 </table>
 
-{% include 'UvmediaCoreBundle::data_list.html.twig' with {'parametros' : ['Usuario' : 'nombres', 'Login' : 'login', 'Grupo' : 'grupos'], 
-                                                          'entidad' : lista_usuarios, 
-                                                          'enlaces' : ['editar' : 'UsuariosBundle_edituser', 'eliminar' : 'UsuariosBundle_deleteuser'], 
-                                                          'nombre_id_ruta' : 'id_usuario'} %}
 <div><a href="{{path('UsuariosBundle_newuser')}}">Crear nuevo</a></div>
-
-{# Así se recorre un array asociativo en TWIG #}
-<ul>
-{% for item,cont in array_lst %}
-<li>parametro: {{ item }} relacion: {{ cont }}</li>
-{% endfor %}
-</ul>
-
 <h4>Grupos en el Sistema</h4>
 <table>
 <tr>

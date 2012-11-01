@@ -1,0 +1,9 @@
+{% extends 'UvmediaCoreBundle::layout.html.twig' %}
+{% block body_content %}
+<div>
+    <form action="" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <button type="submit">Ingresar</button>
+    </form>
+</div>
+{% endblock %}

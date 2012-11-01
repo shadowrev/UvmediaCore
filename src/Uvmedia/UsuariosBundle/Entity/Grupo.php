@@ -3,11 +3,12 @@
 namespace Uvmedia\UsuariosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Uvmedia\CoreBundle\Entity\CoreEntity;
 
 /**
  * Uvmedia\UsuariosBundle\Entity\Grupo
  */
-class Grupo
+class Grupo extends CoreEntity
 {
     /**
      * @var string $nombre
