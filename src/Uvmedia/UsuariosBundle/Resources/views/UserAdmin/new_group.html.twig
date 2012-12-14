@@ -1,0 +1,13 @@
+{% extends 'UvmediaCoreBundle::layout.html.twig' %}
+{% block body_content %}
+<div>
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        <div>{{ form_label(form.nombre, 'Nombre del grupo') }} {{ form_widget(form.nombre) }}</div>
+        <div>{{ form_label(form.aplicacion, 'Aplicación asociadas al grupo') }} {{ form_widget(form.aplicacion, { required : false }) }}</div>
+        <div>{{ form_label(form.usuarios, 'Usuarios asociadas al grupo') }} {{ form_widget(form.usuarios, { required : false }) }}</div>
+        <div><button type="submit">{{ accion }}</button><a href="{{ path('UsuariosBundle_homepage') }}">Cancelar</a></div>
+        {{ form_rest(form) }}
+    </form>
+</div>
+{% endblock %}

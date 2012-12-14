@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Uvmedia\UsuariosBundle\Entity\Usuario;
 use Uvmedia\UsuariosBundle\Form\UsuarioType;
+use Uvmedia\UsuariosBundle\Form\GrupoType;
 use Uvmedia\UsuariosBundle\Entity\Aplicacion;
 use Uvmedia\UsuariosBundle\Entity\Grupo;
 
@@ -117,7 +118,28 @@ class UserAdminController extends Controller
     
     public function newGrupoAction()
     {
+        $grupo = new Grupo();
+        $form_grupo = $this->createForm(new GrupoType, $grupo);
+        $request = $this->getRequest();
         
+        if($request->getMethod() == 'POST')
+        {
+            $form_grupo->bind($request);
+
+            if($form_grupo->isValid())
+            {
+                $grupo_manager = $this->getDoctrine()->getEntityManager();
+                $grupo_manager->persist($grupo);
+                $grupo_manager->flush();
+                
+                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+            }
+        }
+        
+        return $this->render('UsuariosBundle:UserAdmin:new_group.html.twig', array(
+            'form' => $form_grupo->createView(),
+            'accion' => 'Ingresar Nuevo Grupo'
+        ));
     }
     
     public function editGrupoAction()
