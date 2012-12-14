@@ -18,6 +18,14 @@ UsuariosBundle_newgroup:
     pattern: /useradmin/group/new
     defaults: { _controller: UsuariosBundle:UserAdmin:newGrupo }
     
+# TODO el resto de las operaciones para grupos    
+    
+UsuariosBundle_newapp:
+    pattern: /useradmin/app/new
+    defaults: { _controller: UsuariosBundle:UserAdmin:newAplicacion }
+
+# TODO el resto de las operaciones para aplicaciones
+
 #UsuariosBundle_aplicacion:
 #    resource: @UsuariosBundle/Resources/config/routing/aplicacion.yml
 #    prefix: /crudaplicacion/

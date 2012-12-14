@@ -55,6 +55,10 @@ class Usuario implements UserInterface
         $this->grupos = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    public function __toString() {
+        return $this->nombres;
+    }
+    
     /**
      * Set login
      *

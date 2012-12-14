@@ -27,8 +27,8 @@
 <tr><td colspan="3">No hay resultados</td></tr>
 {% endfor %}
 </table>
-
 <div><a href="{{path('UsuariosBundle_newuser')}}">Crear nuevo</a></div>
+
 <h4>Grupos en el Sistema</h4>
 <table>
 <tr>
@@ -49,5 +49,24 @@
 {% endfor %}
 </table>
 <div><a href="{{path('UsuariosBundle_newgroup')}}">Crear nuevo</a></div>
+
+<h4>Aplicaciones en el Sistema</h4>
+<table>
+<tr>
+    <th>Nombre de la Aplicación</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+</tr>
+{% for aplicacion in lista_aplicaciones %}
+<tr>
+<td>{{ aplicacion.nombre }}</td>
+<td><a href="#">Editar</a></td>
+<td><a href="#">Eliminar</a></td>
+</tr>
+{% else %}
+<tr><td colspan="3">No hay resultados</td></tr>
+{% endfor %}
+</table>
+<div><a href="{{path('UsuariosBundle_newapp')}}">Crear nuevo</a></div>
 
 {% endblock %}

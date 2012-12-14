@@ -1,0 +1,12 @@
+{% extends 'UvmediaCoreBundle::layout.html.twig' %}
+{% block body_content %}
+<div>
+    <form method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        <div>{{ form_label(form.nombre, 'Nombre de la aplicación') }} {{ form_widget(form.nombre) }}</div>
+        <div>{{ form_label(form.grupos, 'Grupos') }} {{ form_widget(form.grupos) }}</div>
+        <div><button type="submit">{{ accion }}</button><a href="{{ path('UsuariosBundle_homepage') }}">Cancelar</a></div>
+        {{ form_rest(form) }}
+    </form>
+</div>
+{% endblock %}

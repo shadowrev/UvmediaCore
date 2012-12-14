@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Uvmedia\UsuariosBundle\Entity\Usuario;
 use Uvmedia\UsuariosBundle\Form\UsuarioType;
 use Uvmedia\UsuariosBundle\Form\GrupoType;
+use Uvmedia\UsuariosBundle\Form\AplicacionType;
 use Uvmedia\UsuariosBundle\Entity\Aplicacion;
 use Uvmedia\UsuariosBundle\Entity\Grupo;
 
@@ -148,6 +149,42 @@ class UserAdminController extends Controller
     }
     
     public function deleteGrupoAction()
+    {
+        
+    }
+    
+    public function newAplicacionAction()
+    {
+        $aplicacion = new Aplicacion();
+        $form_aplicacion = $this->createForm(new AplicacionType, $aplicacion);
+        $request = $this->getRequest();
+        
+        if($request->getMethod() == 'POST')
+        {
+            $form_aplicacion->bind($request);
+
+            if($form_aplicacion->isValid())
+            {
+                $aplicacion_manager = $this->getDoctrine()->getEntityManager();
+                $aplicacion_manager->persist($aplicacion);
+                $aplicacion_manager->flush();
+                
+                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+            }
+        }
+        
+        return $this->render('UsuariosBundle:UserAdmin:new_app.html.twig', array(
+            'form' => $form_aplicacion->createView(),
+            'accion' => 'Ingresar Nueva Aplicación'
+        ));
+    }
+    
+    public function editAplicacionAction()
+    {
+        
+    }
+    
+    public function deleteAplicacionAction()
     {
         
     }
