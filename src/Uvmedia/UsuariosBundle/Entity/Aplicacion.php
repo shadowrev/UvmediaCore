@@ -30,6 +30,11 @@ class Aplicacion extends CoreEntity
         $this->grupos = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    public function __toString()
+    {
+        return $this->nombre;
+    }
+    
     /**
      * Set nombre
      *

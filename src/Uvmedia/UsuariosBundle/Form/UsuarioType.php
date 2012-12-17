@@ -18,7 +18,12 @@ class UsuarioType extends AbstractType
             ->add('email')
             ->add('contrasenha', 'password')
             //->add('salt')
-            ->add('grupos')
+            ->add('grupos', 'entity', array(
+                'class' => 'UsuariosBundle:Grupo',
+                'property' => 'nombre',
+                'expanded' => true,
+                'multiple' => true
+            ))
             ->add('confirm', 'password', array(
                 'property_path' => false
             ))

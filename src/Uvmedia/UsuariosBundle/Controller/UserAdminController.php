@@ -143,9 +143,35 @@ class UserAdminController extends Controller
         ));
     }
     
-    public function editGrupoAction()
+    public function editGrupoAction($id_grupo)
     {
+        $grupo_entmanager = $this->getDoctrine()->getEntityManager();
+        $grupo = $grupo_entmanager->getRepository('UsuariosBundle:Grupo')->find($id_grupo);
         
+        if(!$grupo)
+        {
+            throw $this->createNotFoundException(sprintf('El grupo con identificador %s no existe', $id_grupo));
+        }
+        
+        $request = $this->getRequest();
+        $form_grupo = $this->createForm(new GrupoType(), $grupo);
+        
+        if($request->isMethod('POST'))
+        {
+            $form_grupo->bind($request);
+            if($form_grupo->isValid())
+            {
+                $grupo_entmanager->persist($grupo);
+                $grupo_entmanager->flush();
+                
+                return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
+            }
+        }
+        
+        return $this->render('UsuariosBundle:UserAdmin:new_group.html.twig', array(
+            'form' => $form_grupo ->createView(),
+            'accion' => 'Modificar Grupo'
+        ));
     }
     
     public function deleteGrupoAction()

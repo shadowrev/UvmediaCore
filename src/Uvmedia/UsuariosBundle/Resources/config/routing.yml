@@ -17,6 +17,10 @@ UsuariosBundle_deleteuser:
 UsuariosBundle_newgroup:
     pattern: /useradmin/group/new
     defaults: { _controller: UsuariosBundle:UserAdmin:newGrupo }
+
+UsuariosBundle_editgroup:
+    pattern: /useradmin/group/edit/{id_grupo}
+    defaults: { _controller: UsuariosBundle:UserAdmin:editGrupo }
     
 # TODO el resto de las operaciones para grupos    
     

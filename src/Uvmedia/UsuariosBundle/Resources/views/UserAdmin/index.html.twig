@@ -41,7 +41,7 @@
 <tr>
 <td>{{ grupo.nombre }}</td>
 <td>{{ grupo.aplicacion.nombre|default('<em>no tiene</em>') }}</td>
-<td><a href="#">Editar</a></td>
+<td><a href="{{path('UsuariosBundle_editgroup', { 'id_grupo' : grupo.id })}}">Editar</a></td>
 <td><a href="#">Eliminar</a></td>
 </tr>
 {% else %}

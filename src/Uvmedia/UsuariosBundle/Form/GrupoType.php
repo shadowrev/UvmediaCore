@@ -12,7 +12,12 @@ class GrupoType extends AbstractType
         $builder
             ->add('nombre')
             ->add('aplicacion')
-            ->add('usuarios')
+            ->add('usuarios', 'entity', array(
+                'class' => 'UsuariosBundle:Usuario',
+                'property' => 'login',
+                'expanded' => true,
+                'multiple' => true
+            ))
         ;
     }
 
