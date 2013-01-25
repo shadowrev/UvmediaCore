@@ -13,37 +13,19 @@ use Uvmedia\UsuariosBundle\Entity\Grupo;
 
 class UserLoginController extends Controller 
 {
-    public function indexAction()
+    public function loginAction()
     {
+        $form_login = $this->createFormBuilder()
+                ->add('login', 'text')
+                ->add('contrasenha', 'password')
+                ->getForm();
         
+        return $this->render('UsuariosBundle:UserLogin:login.html.twig', array(
+            'form' => $form_login->createView()
+        ));
     }
     
-    public function newUsuarioAction()
-    {
-        
-    }
-    
-    public function editUsuarioAction()
-    {
-        
-    }
-    
-    public function deleteUsuarioAction()
-    {
-        
-    }
-    
-    public function newGrupoAction()
-    {
-        
-    }
-    
-    public function editGrupoAction()
-    {
-        
-    }
-    
-    public function deleteGrupoAction()
+    public function logoutAction()
     {
         
     }

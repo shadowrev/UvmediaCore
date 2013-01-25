@@ -27,13 +27,20 @@ security:
             security: false
 
         secured_area:
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
-            logout:
-                path:   /demo/secured/logout
-                target: /demo/
+             pattern: ^/(menuadmin|useradmin)/
+             form_login:
+                 login_path: /login
+                 check_path: /login_check
+             logout:
+                 path: /logout
+                 target: /
+#            pattern:    ^/demo/secured/
+#            form_login:
+#                check_path: /demo/secured/login_check
+#                login_path: /demo/secured/login
+#            logout:
+#                path:   /demo/secured/logout
+#                target: /demo/
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"

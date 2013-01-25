@@ -33,3 +33,10 @@ UsuariosBundle_newapp:
 #UsuariosBundle_aplicacion:
 #    resource: @UsuariosBundle/Resources/config/routing/aplicacion.yml
 #    prefix: /crudaplicacion/
+
+UsuariosBundle_login:
+    pattern: /login
+    defaults: { _controller: UsuariosBundle:UserLogin:login }
+    
+UsuariosBundle_login_check:
+    pattern: /login_check
