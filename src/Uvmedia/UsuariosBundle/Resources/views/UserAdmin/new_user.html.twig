@@ -1,4 +1,5 @@
 {% extends 'UvmediaCoreBundle::layout.html.twig' %}
+{% form_theme form 'UvmediaCoreBundle:Form:fields.html.twig' %}
 {% block body_content %}
 <div>
     <form method="post" {{ form_enctype(form) }}>

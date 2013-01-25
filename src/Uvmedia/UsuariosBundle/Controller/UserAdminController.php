@@ -103,17 +103,13 @@ class UserAdminController extends Controller
     
     public function deleteUsuarioAction($id_usuario)
     {
-        $em = $this->getDoctrine()->getEntityManager();
-        $entity = $em->getRepository('UsuariosBundle:Usuario')->find($id_usuario);
+        $eliminacion_confirmada = $this->deleteEntity($id_usuario, 'UsuariosBundle:Usuario');
 
-        if (!$entity) 
+        if (!$eliminacion_confirmada) 
         {
             throw $this->createNotFoundException('No existe el usuario');
         }
-        $em->remove($entity);
-        $em->flush();
-
-
+        
         return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
     }
     
@@ -174,9 +170,16 @@ class UserAdminController extends Controller
         ));
     }
     
-    public function deleteGrupoAction()
+    public function deleteGrupoAction($id_grupo)
     {
-        
+        $confirmacion_eliminado = $this->deleteEntity($id_grupo, 'UsuariosBundle:Grupo');
+
+        if (!$confirmacion_eliminado)
+        {
+            throw $this->createNotFoundException('No existe el grupo');
+        }
+
+        return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
     }
     
     public function newAplicacionAction()
@@ -210,15 +213,49 @@ class UserAdminController extends Controller
         
     }
     
-    public function deleteAplicacionAction()
+    public function deleteAplicacionAction($id_aplicacion)
     {
-        
+        $em = $this->getDoctrine()->getEntityManager();
+        $borrado_confirmado = $this->deleteEntity($id_aplicacion, 'UsuariosBundle:Aplicacion');
+
+        if (!$borrado_confirmado) 
+        {
+            throw $this->createNotFoundException('No existe la aplicación');
+        }
+
+        return $this->redirect($this->generateUrl('UsuariosBundle_homepage'));
     }
     
+    /**
+     * Genera el hash de la contraseña para el nuevo usuario.
+     * @param type $usuario Entidad de clase Usuario. Parametro pasado por referencia
+     * @param type $contrasenha La contraseña a la que se va a generar el hash
+     */
     protected function generarContrasenhaUsuario(&$usuario, $contrasenha)
     {
         $usuario->setSalt(uniqid() . rand(0, 10000));
         $usuario->setContrasenha(md5($usuario->getSalt() . $contrasenha));
+    }
+    
+    /**
+     * Elimina un objeto de la base de datos
+     * @param type $id_entity Identificador de la entidad
+     * @param type $entity_name Nombre de la clase de la entidad, en la forma nombrebundle:entidad
+     * @return boolean true si la entidad existe, false si no existe.
+     */
+    private function deleteEntity($id_entity, $entity_name)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository($entity_name)->find($id_entity);
+
+        if (!$entity) 
+        {
+            return false;
+        }
+        
+        $em->remove($entity);
+        $em->flush();
+        return true;
     }
     
     private function createDeleteForm($id)

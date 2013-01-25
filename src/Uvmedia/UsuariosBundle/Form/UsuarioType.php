@@ -37,7 +37,8 @@ class UsuarioType extends AbstractType
                         $form->addError(new FormError('La contraseña no coincide'));
                     }
                 }
-            ));
+            ))
+        ;
     }
 
     public function getName()
