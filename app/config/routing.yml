@@ -13,3 +13,7 @@ MenuBundle:
 UvmediaCoreBundle:
     resource: "@UvmediaCoreBundle/Resources/config/routing.xml"
     prefix:   /
+    
+EncuestaCoreBundle:
+    resource: "@EncuestaBundle/Resources/config/routing.yml"
+    prefix:   /

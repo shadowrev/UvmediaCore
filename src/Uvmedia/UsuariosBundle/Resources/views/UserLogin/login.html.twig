@@ -1,7 +1,10 @@
 {% extends 'UvmediaCoreBundle::layout.html.twig' %}
 {% block body_content %}
+{% if error %}
+<div>{{ error.message }}</div>
+{% endif %}
 <div>
-    <form action="" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('UsuariosBundle_login_check') }}" method="post" {{ form_enctype(form) }}>
         {{ form_widget(form) }}
         <button type="submit">Ingresar</button>
     </form>

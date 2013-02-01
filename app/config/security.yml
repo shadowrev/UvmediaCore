@@ -28,9 +28,10 @@ security:
 
         secured_area:
              pattern: ^/(menuadmin|useradmin)/
-             form_login:
-                 login_path: /login
-                 check_path: /login_check
+             form_login: ~
+#                 login_path: /login
+#                 check_path: /login_check
+#                 check_path: ~
              logout:
                  path: /logout
                  target: /
@@ -46,5 +47,6 @@ security:
             #    realm: "Secured Demo Area"
 
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/(menuadmin|useradmin)/, roles: ROLE_ADMIN }
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

@@ -1,5 +1,5 @@
 UsuariosBundle_homepage:
-    pattern:  /useradmin
+    pattern:  /useradmin/
     defaults: { _controller: UsuariosBundle:UserAdmin:index }
     
 UsuariosBundle_newuser:

@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-//            new Uvmedia\EncuestaBundle\EncuestaBundle(),
+            new Uvmedia\EncuestaBundle\EncuestaBundle(),
             new Uvmedia\CoreBundle\UvmediaCoreBundle(),
             new Uvmedia\MenuBundle\MenuBundle(),
             new Uvmedia\UsuariosBundle\UsuariosBundle(),
