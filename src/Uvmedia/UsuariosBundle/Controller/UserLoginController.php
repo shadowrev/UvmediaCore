@@ -31,7 +31,7 @@ class UserLoginController extends Controller
         }
         
         $form_login = $this->createFormBuilder()
-                ->add('_username', 'text', array('label' => 'Login: '))
+                ->add('_username', 'text', array('label' => 'Login: ', 'property_path' => false))
                 ->add('_password', 'password', array('label' => 'Contraseña: '))
                 ->getForm();
         

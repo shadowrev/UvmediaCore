@@ -11,6 +11,8 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        main:
+            entity: { class: Uvmedia\UsuariosBundle\Entity\Usuario, property: login }
         in_memory:
             memory:
                 users:
@@ -25,9 +27,14 @@ security:
         login:
             pattern:  ^/demo/secured/login$
             security: false
+            
+#        userlocal_admin:
+#            pattern: ^/useradmin/
+#            anonymous: ~
 
         secured_area:
              pattern: ^/(menuadmin|useradmin)/
+#             pattern: ^/secure/
              form_login: ~
 #                 login_path: /login
 #                 check_path: /login_check
@@ -48,5 +55,6 @@ security:
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/useradmin/, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
         - { path: ^/(menuadmin|useradmin)/, roles: ROLE_ADMIN }
         #- { path: ^/_internal/secure, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }

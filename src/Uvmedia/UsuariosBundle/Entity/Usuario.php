@@ -4,11 +4,12 @@ namespace Uvmedia\UsuariosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\EquatableInterface;
 
 /**
  * Uvmedia\UsuariosBundle\Entity\Usuario
  */
-class Usuario implements UserInterface
+class Usuario implements UserInterface, EquatableInterface
 {
     /**
      * @var string $login
@@ -226,5 +227,10 @@ class Usuario implements UserInterface
 
     public function getUsername() {
         return $this->getLogin();
+    }
+    
+    public function isEqualTo(UserInterface $user)
+    {
+        return $this->id === $user->getId();
     }
 }
